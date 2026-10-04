@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Blockchain Based Supply Chain Tracking System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🚚 SupplyChain
+        </div>
+
+        <div class="nav-links">
+
+            <a href="#dashboard">Dashboard</a>
+
+            <a href="#products">Products</a>
+
+            <a href="#scanner-section">Scan QR</a>
+
+            <a href="#tracking">Tracking</a>
+
+            <a href="#verify">Verify</a>
+
+            <a href="#transactions">Transactions</a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <h1>
+            Blockchain Based Supply Chain Tracking System
+        </h1>
+
+        <p>
+            Track and verify products securely
+            using blockchain smart contracts.
+        </p>
+
+        <button
+            class="primary-btn"
+            onclick="connectWallet()"
+        >
+            Connect Wallet
+        </button>
+
+        <p id="connectionStatus">
+            Wallet not connected
+        </p>
+
+    </section>
+
+
+    <!-- ================= WALLET ================= -->
+
+    <section class="container">
+
+        <div class="wallet-card">
+
+            <h2>
+                Wallet Information
+            </h2>
+
+            <p>
+                <strong>Wallet Address:</strong>
+
+                <span id="walletAddress">
+                    Not connected
+                </span>
+            </p>
+
+            <p>
+                <strong>User Role:</strong>
+
+                <span id="userRole">
+                    Viewer
+                </span>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= DASHBOARD ================= -->
+
+    <section
+        id="dashboard"
+        class="container"
+    >
+
+        <h2>
+            Dashboard
+        </h2>
+
+        <div class="dashboard-grid">
+
+            <div class="dashboard-card">
+
+                <h3>
+                    Total Products
+                </h3>
+
+                <p id="totalProducts">
+                    0
+                </p>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <h3>
+                    Manufactured
+                </h3>
+
+                <p id="manufacturedProducts">
+                    0
+                </p>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <h3>
+                    In Transit
+                </h3>
+
+                <p id="transitProducts">
+                    0
+                </p>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <h3>
+                    Delivered
+                </h3>
+
+                <p id="deliveredProducts">
+                    0
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PRODUCTS ================= -->
+
+    <section
+        id="products"
+        class="container"
+    >
+
+        <h2>
+            Product List
+        </h2>
+
+        <input
+            type="text"
+            id="productSearch"
+            placeholder="Search product..."
+            onkeyup="filterProducts()"
+        >
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>Product</th>
+
+                        <th>Location</th>
+
+                        <th>Status</th>
+
+                        <th>Timestamp</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="productTableBody">
+
+                    <!-- Products will be loaded here -->
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PRODUCT DETAILS ================= -->
+
+    <section
+        id="productDetails"
+        class="container"
+    >
+
+        <div class="details-card">
+
+            <h2>
+                Product Details
+            </h2>
+
+            <p>
+                <strong>Product Name:</strong>
+
+                <span id="detailsProductName">
+                    ---
+                </span>
+            </p>
+
+            <p>
+                <strong>Status:</strong>
+
+                <span id="detailsProductStatus">
+                    ---
+                </span>
+            </p>
+
+            <p>
+                <strong>Product ID:</strong>
+
+                <span id="detailsProductId">
+                    ---
+                </span>
+            </p>
+
+            <p>
+                <strong>Location:</strong>
+
+                <span id="detailsProductLocation">
+                    ---
+                </span>
+            </p>
+
+            <p>
+                <strong>Created By:</strong>
+
+                <span id="detailsProductCreator">
+                    ---
+                </span>
+            </p>
+
+            <p>
+                <strong>Timestamp:</strong>
+
+                <span id="detailsProductTimestamp">
+                    ---
+                </span>
+            </p>
+
+            <hr>
+
+            <h3>
+                Tracking History
+            </h3>
+
+            <div id="detailsTrackingHistory">
+                No tracking history.
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= TRANSACTION DETAILS ================= -->
+
+    <section
+        id="transactions"
+        class="container"
+    >
+
+        <div class="form-card">
+
+            <h2>
+                ⛓️ Latest Transaction Details
+            </h2>
+
+            <p>
+                <strong>Transaction Type:</strong>
+
+                <span id="transactionType">
+                    ---
+                </span>
+            </p>
+
+            <p>
+                <strong>Transaction Hash:</strong>
+
+                <span
+                    id="transactionHash"
+                    style="word-break: break-all;"
+                >
+                    ---
+                </span>
+            </p>
+
+            <p>
+                <strong>Block Number:</strong>
+
+                <span id="transactionBlock">
+                    ---
+                </span>
+            </p>
+
+            <p>
+                <strong>Transaction Status:</strong>
+
+                <span id="transactionStatus">
+                    ---
+                </span>
+            </p>
+
+            <p>
+                <strong>From:</strong>
+
+                <span
+                    id="transactionFrom"
+                    style="word-break: break-all;"
+                >
+                    ---
+                </span>
+            </p>
+
+            <p>
+                <strong>To:</strong>
+
+                <span
+                    id="transactionTo"
+                    style="word-break: break-all;"
+                >
+                    ---
+                </span>
+            </p>
+
+            <p>
+                <strong>Gas Used:</strong>
+
+                <span id="transactionGasUsed">
+                    ---
+                </span>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= QR GENERATOR ================= -->
+
+    <section
+        id="qr-generator"
+        class="container"
+    >
+
+        <div class="qr-card">
+
+            <h2>
+                Generate Product QR Code
+            </h2>
+
+            <p>
+                Select a product from the list
+                then generate its QR code.
+            </p>
+
+            <div id="qrcode"></div>
+
+            <p>
+                Product ID:
+
+                <strong id="qrProductId">
+                    ---
+                </strong>
+            </p>
+
+            <button
+                class="primary-btn"
+                onclick="generateQRCode(currentProductId)"
+            >
+                Generate QR Code
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= QR SCANNER ================= -->
+
+    <section
+        id="scanner-section"
+        class="container"
+    >
+
+        <div class="scanner-card">
+
+            <h2>
+                📷 Scan Product QR Code
+            </h2>
+
+            <p>
+                Scan a product QR code
+                to verify it on the blockchain.
+            </p>
+
+            <div
+                id="qr-reader"
+                class="qr-reader"
+            >
+            </div>
+
+            <div class="scanner-buttons">
+
+                <button
+                    class="primary-btn"
+                    onclick="startScanner()"
+                >
+                    Start Scanner
+                </button>
+
+                <button
+                    class="danger-btn"
+                    onclick="stopScanner()"
+                >
+                    Stop Scanner
+                </button>
+
+            </div>
+
+            <div id="scannerResult">
+
+                Scanner not started.
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ADD PRODUCT ================= -->
+
+    <section
+        id="addProductSection"
+        class="container role-manufacturer"
+    >
+
+        <div class="form-card">
+
+            <h2>
+                📦 Add Product
+            </h2>
+
+            <input
+                type="text"
+                id="productName"
+                placeholder="Product Name"
+            >
+
+            <input
+                type="text"
+                id="productLocation"
+                placeholder="Location"
+            >
+
+            <input
+                type="text"
+                id="productStatus"
+                placeholder="Status"
+                value="Manufactured"
+            >
+
+            <button
+                class="primary-btn"
+                onclick="addProduct()"
+            >
+                Add Product
+            </button>
+
+            <p id="addProductMessage"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FIND PRODUCT ================= -->
+
+    <section
+        id="findProductSection"
+        class="container"
+    >
+
+        <div class="form-card">
+
+            <h2>
+                🔎 Find Product
+            </h2>
+
+            <input
+                type="number"
+                id="findProductId"
+                placeholder="Product ID"
+                min="1"
+            >
+
+            <button
+                class="primary-btn"
+                onclick="findProduct()"
+            >
+                Find Product
+            </button>
+
+            <p id="findProductMessage"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= UPDATE PRODUCT ================= -->
+
+    <section
+        id="updateProductSection"
+        class="container role-update"
+    >
+
+        <div class="form-card">
+
+            <h2>
+                🚚 Update Product
+            </h2>
+
+            <input
+                type="number"
+                id="updateProductId"
+                placeholder="Product ID"
+                min="1"
+            >
+
+            <input
+                type="text"
+                id="updateLocation"
+                placeholder="New Location"
+            >
+
+            <input
+                type="text"
+                id="updateStatus"
+                placeholder="New Status"
+            >
+
+            <button
+                class="primary-btn"
+                onclick="updateProduct()"
+            >
+                Update Product
+            </button>
+
+            <p id="updateProductMessage"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= TRACKING ================= -->
+
+    <section
+        id="tracking"
+        class="container"
+    >
+
+        <div class="form-card">
+
+            <h2>
+                📜 Tracking History
+            </h2>
+
+            <input
+                type="number"
+                id="trackingProductId"
+                placeholder="Product ID"
+                min="1"
+            >
+
+            <button
+                class="primary-btn"
+                onclick="showTracking()"
+            >
+                View Tracking
+            </button>
+
+            <div id="trackingResult">
+
+                <!-- Tracking history appears here -->
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= VERIFY ================= -->
+
+    <section
+        id="verify"
+        class="container"
+    >
+
+        <div class="form-card">
+
+            <h2>
+                ✅ Verify Product
+            </h2>
+
+            <input
+                type="number"
+                id="verifyProductId"
+                placeholder="Product ID"
+                min="1"
+            >
+
+            <button
+                class="primary-btn"
+                onclick="verifyProduct()"
+            >
+                Verify Product
+            </button>
+
+            <div id="verifyResult">
+
+                <!-- Verification result appears here -->
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ACCESS CONTROL ================= -->
+
+    <section
+        id="accessControlSection"
+        class="container role-owner"
+    >
+
+        <div class="form-card">
+
+            <h2>
+                🔐 Access Control
+            </h2>
+
+            <input
+                type="text"
+                id="manufacturerAddress"
+                placeholder="Manufacturer Wallet Address"
+            >
+
+            <button
+                class="primary-btn"
+                onclick="addManufacturer()"
+            >
+                Add Manufacturer
+            </button>
+
+            <br>
+            <br>
+
+            <input
+                type="text"
+                id="distributorAddress"
+                placeholder="Distributor Wallet Address"
+            >
+
+            <button
+                class="primary-btn"
+                onclick="addDistributor()"
+            >
+                Add Distributor
+            </button>
+
+            <p id="accessMessage"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            Blockchain Supply Chain Tracking System
+        </p>
+
+        <p>
+            Powered by Ethereum Smart Contracts
+        </p>
+
+    </footer>
+
+
+    <!-- ================= LOCAL LIBRARIES ================= -->
+
+    <script src="libs/ethers.umd.min.js"></script>
+
+    <script src="libs/qrcode.min.js"></script>
+
+    <script src="libs/html5-qrcode.min.js"></script>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>

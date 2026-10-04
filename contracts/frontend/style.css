@@ -1,0 +1,509 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #1f2937;
+    line-height: 1.6;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    background: #111827;
+    color: white;
+    padding: 16px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 22px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    color: #e5e7eb;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.nav-links a:hover {
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    background: linear-gradient(135deg, #1d4ed8, #2563eb);
+    color: white;
+    padding: 80px 7%;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    right: -100px;
+    top: -120px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.hero h1 {
+    font-size: 42px;
+    max-width: 800px;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero p {
+    font-size: 17px;
+    color: #dbeafe;
+    max-width: 700px;
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 1;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.container h2 {
+    margin-bottom: 20px;
+    color: #111827;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.primary-btn,
+.danger-btn {
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.2s;
+    margin-top: 10px;
+}
+
+.primary-btn {
+    background: #2563eb;
+}
+
+.primary-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 12px rgba(37, 99, 235, 0.25);
+}
+
+.danger-btn {
+    background: #dc2626;
+}
+
+.danger-btn:hover {
+    background: #b91c1c;
+    transform: translateY(-1px);
+}
+
+/* =========================
+   WALLET
+========================= */
+
+.wallet-card {
+    background: white;
+    padding: 25px;
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+}
+
+.wallet-card p {
+    margin: 12px 0;
+    word-break: break-all;
+}
+
+.wallet-card strong {
+    color: #111827;
+}
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.dashboard-card {
+    background: white;
+    padding: 28px 20px;
+    border-radius: 14px;
+    text-align: center;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+    transition: 0.2s;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.09);
+}
+
+.dashboard-card h3 {
+    color: #4b5563;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.dashboard-card p {
+    color: #2563eb;
+    font-size: 38px;
+    font-weight: 700;
+    margin-top: 8px;
+}
+
+/* =========================
+   TABLE
+========================= */
+
+.table-container {
+    overflow-x: auto;
+    background: white;
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.05);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+}
+
+th,
+td {
+    padding: 15px;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: left;
+}
+
+th {
+    background: #111827;
+    color: white;
+    font-size: 14px;
+}
+
+td {
+    font-size: 14px;
+}
+
+tbody tr:hover {
+    background: #f8fafc;
+}
+
+/* =========================
+   GENERAL CARDS
+========================= */
+
+.details-card,
+.qr-card,
+.scanner-card,
+.form-card {
+    background: white;
+    padding: 30px;
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+}
+
+.details-card p {
+    margin: 13px 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.details-card strong {
+    color: #111827;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+input,
+select {
+    width: 100%;
+    padding: 13px;
+    margin: 8px 0;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 15px;
+    background: white;
+    outline: none;
+    transition: 0.2s;
+}
+
+input:focus,
+select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+/* =========================
+   QR CODE
+========================= */
+
+.qr-card {
+    text-align: center;
+}
+
+#qrcode {
+    margin: 20px auto;
+    width: fit-content;
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
+}
+
+/* =========================
+   SCANNER
+========================= */
+
+.scanner-card {
+    text-align: center;
+}
+
+.qr-reader {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+.scanner-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#scannerResult {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    background: #f3f4f6;
+}
+
+/* =========================
+   TRACKING
+========================= */
+
+#trackingResult {
+    margin-top: 20px;
+}
+
+.tracking-item {
+    background: white;
+    padding: 18px;
+    margin: 12px 0;
+    border-left: 4px solid #2563eb;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.tracking-item strong {
+    color: #111827;
+}
+
+.tracking-item p {
+    margin: 7px 0;
+}
+
+/* =========================
+   VERIFY
+========================= */
+
+#verifyResult {
+    margin-top: 20px;
+    padding: 18px;
+    border-radius: 10px;
+    background: #f8fafc;
+}
+
+/* =========================
+   TRANSACTION DETAILS
+========================= */
+
+#transactions {
+    scroll-margin-top: 90px;
+}
+
+#transactionHash,
+#transactionFrom,
+#transactionTo {
+    word-break: break-all;
+}
+
+/* =========================
+   MESSAGES
+========================= */
+
+#addProductMessage,
+#findProductMessage,
+#updateProductMessage,
+#accessMessage {
+    margin-top: 12px;
+    padding: 10px;
+    border-radius: 7px;
+    font-size: 14px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #111827;
+    color: white;
+    text-align: center;
+    padding: 35px 20px;
+    margin-top: 60px;
+}
+
+footer p {
+    margin: 8px;
+    color: #d1d5db;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        padding: 15px 5%;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero {
+        padding: 60px 5%;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .container {
+        width: 94%;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .logo {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .hero {
+        padding: 45px 5%;
+    }
+
+    .hero h1 {
+        font-size: 27px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-card p {
+        font-size: 32px;
+    }
+
+    .container {
+        width: 94%;
+        margin: 30px auto;
+    }
+
+    .details-card,
+    .qr-card,
+    .scanner-card,
+    .form-card,
+    .wallet-card {
+        padding: 20px;
+    }
+
+    .primary-btn,
+    .danger-btn {
+        width: 100%;
+    }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "supply-chain-project",
+  "version": "1.0.0",
+  "type": "module",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-viem": "^3.0.9",
+    "@types/node": "^22.20.1",
+    "hardhat": "^3.15.0",
+    "typescript": "~6.0.3"
+  },
+  "dependencies": {
+    "ethers": "^6.17.0",
+    "html5-qrcode": "^2.3.8",
+    "qrcode": "^1.5.4",
+    "qrcodejs": "^1.0.0"
+  }
+}
