@@ -1,20 +1,17 @@
 # Blockchain-Based Supply Chain Tracking System
 
-A blockchain-based supply chain tracking system developed using Solidity smart contracts, Hardhat, MetaMask, Ethers.js, HTML, CSS, and JavaScript.
+A blockchain-based supply chain tracking system built with **Solidity, Hardhat, Ethers.js, MetaMask, HTML, CSS, and JavaScript**.
 
-The system allows authorized manufacturers and distributors to register, update, track, and verify products throughout the supply chain.
+The system uses smart contracts to register, track, update, and verify products throughout different stages of the supply chain.
 
----
+## 🚀 Features
 
-## 1. Project Features
-
-* Manufacturer/Owner access control
+* Manufacturer and Owner access control
 * Distributor access control
 * Product registration
-* Product updating
+* Product status and location updates
 * Supply-chain tracking history
-* Product search
-* Product verification
+* Product search and verification
 * Dashboard statistics
 * QR code generation
 * QR code scanning
@@ -23,29 +20,48 @@ The system allows authorized manufacturers and distributors to register, update,
 * Responsive user interface
 * Smart contract-based authorization
 * Blockchain-based product records
-* Product creation timestamp
+* Product timestamps
 * Product creator information
 
----
+## 🛠️ Technologies
 
-## 2. Technologies Used
+* **Solidity** — Smart contracts
+* **Hardhat 3** — Blockchain development environment
+* **Ethers.js** — Ethereum interaction
+* **JavaScript** — Frontend logic
+* **HTML5** — Application structure
+* **CSS3** — User interface
+* **MetaMask** — Wallet integration
+* **Ethereum-compatible blockchain** — Local blockchain
+* **QR Code** — Product verification
+* **Node.js & npm** — Development environment
+* **VS Code** — Development
 
-* Solidity
-* Hardhat 3
-* JavaScript
-* HTML5
-* CSS3
-* Ethers.js
-* MetaMask
-* Ethereum-compatible local blockchain
-* QR Code
-* VS Code
-* Node.js
-* npm
+## 📁 Project Structure
 
----
+```text
+supply-chain-project/
+│
+├── contracts/
+│   ├── SupplyChain.sol
+│   └── frontend/
+│       ├── libs/
+│       ├── app.js
+│       ├── index.html
+│       └── style.css
+│
+├── scripts/
+│   └── deploy.ts
+│
+├── .gitignore
+├── hardhat.config.ts
+├── package.json
+├── package-lock.json
+├── tsconfig.json
+└── README.md
+```
 
-## 3. Requirements
+## 📋 Requirements
 
 Before running the project, install:
 
@@ -55,84 +71,35 @@ Before running the project, install:
 * MetaMask browser extension
 * VS Code Live Server extension
 
----
+## ⚙️ Installation
 
-## 4. Project Structure
+### 1. Clone the Repository
 
-```text
-supply-chain-project/
-|
-+-- contracts/
-|   +-- SupplyChain.sol
-|   |
-|   +-- frontend/
-|       +-- libs/
-|       +-- app.js
-|       +-- index.html
-|       +-- style.css
-|
-+-- scripts/
-|   +-- deploy.ts
-|
-+-- artifacts/
-+-- cache/
-+-- node_modules/
-|
-+-- .gitignore
-+-- hardhat.config.ts
-+-- package.json
-+-- package-lock.json
-+-- tsconfig.json
-+-- README.md
+```powershell
+git clone https://github.com/baleerh-ops/blockchain-supply-chain-tracking-system.git
 ```
 
----
+Enter the project directory:
 
-## 5. Installation
-
-### Step 1: Open the Project
-
-Open the project folder in VS Code.
-
-Example:
-
-```text
-C:\Users\SAMSUNG\Desktop\supply-chain-project
+```powershell
+cd blockchain-supply-chain-tracking-system
 ```
 
-Open the VS Code terminal:
-
-```text
-Terminal -> New Terminal
-```
-
-### Step 2: Install Dependencies
-
-Run:
+### 2. Install Dependencies
 
 ```powershell
 npm install
 ```
 
-### Step 3: Build the Smart Contract
-
-Run:
+### 3. Build the Project
 
 ```powershell
 npx hardhat build
 ```
 
-A successful build should display:
+## ⛓️ Start the Local Blockchain
 
-```text
-Compiled 1 Solidity file with solc 0.8.34
-```
-
----
-
-## 6. Start the Local Blockchain
-
-Run:
+Start the Hardhat local blockchain:
 
 ```powershell
 npx hardhat node
@@ -144,39 +111,34 @@ The local blockchain runs on:
 http://127.0.0.1:8545
 ```
 
-Keep this terminal open while using the application.
+Keep this terminal running while testing the application.
 
----
+## 📜 Deploy the Smart Contract
 
-## 7. Deploy the Smart Contract
-
-Open another terminal in the project folder.
-
-Run:
+Open another terminal in the project directory and run:
 
 ```powershell
 npx hardhat run scripts/deploy.ts --network localhost
 ```
 
-Current contract address:
+### Current Contract
 
 ```text
+Contract Address:
 0xb7f8bc63bbcad18155201308c8f3540b07f84f5e
 ```
 
-If you deploy the contract again, update the contract address in:
+If the contract is redeployed, update the contract address in:
 
 ```text
 contracts/frontend/app.js
 ```
 
----
-
-## 8. Configure MetaMask
+## 🦊 Configure MetaMask
 
 Connect MetaMask to the local Hardhat network.
 
-Use these settings:
+Use:
 
 ```text
 Network Name: Hardhat Local
@@ -185,19 +147,17 @@ Chain ID: 31337
 Currency Symbol: ETH
 ```
 
-For local testing, you can import one of the test accounts displayed by:
+For local development, you can import one of the test accounts displayed when running:
 
 ```powershell
 npx hardhat node
 ```
 
-These accounts are for development and testing only.
+**Important:** These accounts are for local development only. Never use or share real wallet private keys.
 
----
+## 🌐 Start the Frontend
 
-## 9. Start the Frontend
-
-The frontend is located in:
+The frontend is located at:
 
 ```text
 contracts/frontend/
@@ -209,37 +169,19 @@ Open:
 contracts/frontend/index.html
 ```
 
-using VS Code Live Server.
+using the VS Code Live Server extension.
 
-The application should open at:
+The application should be available at:
 
 ```text
 http://127.0.0.1:5500/contracts/frontend/index.html
 ```
 
----
-
-## 10. Connect MetaMask
-
-Open the application in your browser.
-
-Click:
-
-```text
-Connect Wallet
-```
-
-Approve the connection request in MetaMask.
-
-The application will display the connected wallet and user role.
-
----
-
-## 11. User Roles
+## 👥 User Roles
 
 ### Owner
 
-The owner can:
+The Owner can:
 
 * Add manufacturers
 * Add distributors
@@ -247,7 +189,7 @@ The owner can:
 
 ### Manufacturer
 
-A manufacturer can:
+Manufacturers can:
 
 * Register products
 * Update product information
@@ -256,7 +198,7 @@ A manufacturer can:
 
 ### Distributor
 
-A distributor can:
+Distributors can:
 
 * Update product location
 * Update product status
@@ -264,41 +206,35 @@ A distributor can:
 
 ### Public User
 
-Users can:
+Public users can:
 
 * Search products
 * Verify products
 * View tracking history
-* Scan QR codes
+* Scan product QR codes
 
----
+## 📦 Product Registration
 
-## 12. Product Registration
-
-Authorized manufacturers can register products by entering:
+Authorized manufacturers can register products using:
 
 * Product name
 * Location
 * Status
 
-After registration, the product is stored on the blockchain and receives a unique Product ID.
+After registration, the product is stored on the blockchain and receives a unique **Product ID**.
 
----
-
-## 13. Product Tracking
+## 🚚 Supply-Chain Tracking
 
 The system records product changes including:
 
 * Location
 * Status
 * Timestamp
-* Address of the account that performed the update
+* Account address responsible for the update
 
-These records form the product tracking history.
+These records create the product's tracking history.
 
----
-
-## 14. Product Verification
+## 🔍 Product Verification
 
 Users can enter a Product ID to verify a product.
 
@@ -311,11 +247,9 @@ The system can display:
 * Timestamp
 * Product creator
 
----
+## 📱 QR Code
 
-## 15. QR Code
-
-The system supports QR code generation and scanning.
+The system supports QR-code-based product verification.
 
 ### QR Code Generation
 
@@ -323,15 +257,12 @@ A QR code can be generated for a registered product.
 
 ### QR Code Scanning
 
-Users can scan the QR code to access product information.
+Users can scan the QR code to access product information and tracking details.
 
----
+## 🔗 Blockchain Transactions
 
-## 16. Blockchain Transactions
+The application can provide transaction information including:
 
-The system displays transaction information such as:
-
-* Transaction type
 * Transaction hash
 * Block number
 * Transaction status
@@ -339,9 +270,7 @@ The system displays transaction information such as:
 * Contract address
 * Gas information
 
----
-
-## 17. Smart Contract
+## 📜 Smart Contract
 
 The main smart contract is:
 
@@ -349,7 +278,7 @@ The main smart contract is:
 contracts/SupplyChain.sol
 ```
 
-The contract provides:
+It provides functionality for:
 
 * Product registration
 * Product updates
@@ -359,558 +288,103 @@ The contract provides:
 * Distributor authorization
 * Event logging
 
----
-
-## 18. Testing the Application
+## 🧪 Testing the Application
 
 After starting the Hardhat node and deploying the contract:
 
 1. Connect MetaMask.
-2. Select the Hardhat Local network.
-3. Add a manufacturer if required.
-4. Register a product.
-5. Check the generated Product ID.
-6. Search for the product.
-7. Update the product location or status.
-8. View the tracking history.
-9. Verify the product.
-10. Generate the product QR code.
-11. Test QR code scanning.
-12. Check the blockchain transaction details.
+2. Select the **Hardhat Local** network.
+3. Connect the application wallet.
+4. Add a manufacturer if required.
+5. Register a product.
+6. Check the generated Product ID.
+7. Search for the product.
+8. Update the product location or status.
+9. View the tracking history.
+10. Verify the product.
+11. Generate the product QR code.
+12. Test QR-code scanning.
+13. Check blockchain transaction details.
 
----
+## 🧰 Useful Commands
 
-## 19. Important Commands
-
-### Install dependencies
+Install dependencies:
 
 ```powershell
 npm install
 ```
 
-### Build the project
+Build the project:
 
 ```powershell
 npx hardhat build
 ```
 
-### Start local blockchain
+Start the local blockchain:
 
 ```powershell
 npx hardhat node
 ```
 
-### Deploy the contract
+Deploy the smart contract:
 
 ```powershell
 npx hardhat run scripts/deploy.ts --network localhost
 ```
 
-### Clean Hardhat build files
+Clean Hardhat files:
 
 ```powershell
 npx hardhat clean
 ```
 
----
-
-## 20. Important Notes
-
-The Hardhat local blockchain is intended for development and testing.
-
-The frontend must use the address of the currently deployed smart contract.
-
-If the contract is redeployed, update the contract address in:
+## 🌍 Current Local Deployment
 
 ```text
-contracts/frontend/app.js
-```
-
-Do not share real private keys or sensitive wallet information.
-
----
-
-## 21. Current Deployment
-
-```text
-Contract Address:
-0xb7f8bc63bbcad18155201308c8f3540b07f84f5e
-
-Network:
-Hardhat Local
-
-RPC URL:
-http://127.0.0.1:8545
-
-Chain ID:
-31337
-
-Currency:
-ETH
-```
-
----
-
-## 22. Project Purpose
-
-The purpose of this project is to demonstrate how blockchain technology and smart contracts can be used to improve supply-chain tracking, transparency, product verification, and record management.
-
-The system provides a blockchain-based approach for recording product movement and status changes across different stages of the supply chain.
-# Blockchain-Based Supply Chain Tracking System
-
-A blockchain-based supply chain tracking system developed using Solidity smart contracts, Hardhat, MetaMask, Ethers.js, HTML, CSS, and JavaScript.
-
-The system allows authorized manufacturers and distributors to register, update, track, and verify products throughout the supply chain.
-
----
-
-## 1. Project Features
-
-* Manufacturer/Owner access control
-* Distributor access control
-* Product registration
-* Product updating
-* Supply-chain tracking history
-* Product search
-* Product verification
-* Dashboard statistics
-* QR code generation
-* QR code scanning
-* Blockchain transaction details
-* MetaMask wallet integration
-* Responsive user interface
-* Smart contract-based authorization
-* Blockchain-based product records
-* Product creation timestamp
-* Product creator information
-
----
-
-## 2. Technologies Used
-
-* Solidity
-* Hardhat 3
-* JavaScript
-* HTML5
-* CSS3
-* Ethers.js
-* MetaMask
-* Ethereum-compatible local blockchain
-* QR Code
-* VS Code
-* Node.js
-* npm
-
----
-
-## 3. Requirements
-
-Before running the project, install:
-
-* Node.js
-* npm
-* VS Code
-* MetaMask browser extension
-* VS Code Live Server extension
-
----
-
-## 4. Project Structure
-
-```text
-supply-chain-project/
-|
-+-- contracts/
-|   +-- SupplyChain.sol
-|   |
-|   +-- frontend/
-|       +-- libs/
-|       +-- app.js
-|       +-- index.html
-|       +-- style.css
-|
-+-- scripts/
-|   +-- deploy.ts
-|
-+-- artifacts/
-+-- cache/
-+-- node_modules/
-|
-+-- .gitignore
-+-- hardhat.config.ts
-+-- package.json
-+-- package-lock.json
-+-- tsconfig.json
-+-- README.md
-```
-
----
-
-## 5. Installation
-
-### Step 1: Open the Project
-
-Open the project folder in VS Code.
-
-Example:
-
-```text
-C:\Users\SAMSUNG\Desktop\supply-chain-project
-```
-
-Open the VS Code terminal:
-
-```text
-Terminal -> New Terminal
-```
-
-### Step 2: Install Dependencies
-
-Run:
-
-```powershell
-npm install
-```
-
-### Step 3: Build the Smart Contract
-
-Run:
-
-```powershell
-npx hardhat build
-```
-
-A successful build should display:
-
-```text
-Compiled 1 Solidity file with solc 0.8.34
-```
-
----
-
-## 6. Start the Local Blockchain
-
-Run:
-
-```powershell
-npx hardhat node
-```
-
-The local blockchain runs on:
-
-```text
-http://127.0.0.1:8545
-```
-
-Keep this terminal open while using the application.
-
----
-
-## 7. Deploy the Smart Contract
-
-Open another terminal in the project folder.
-
-Run:
-
-```powershell
-npx hardhat run scripts/deploy.ts --network localhost
-```
-
-Current contract address:
-
-```text
-0xb7f8bc63bbcad18155201308c8f3540b07f84f5e
-```
-
-If you deploy the contract again, update the contract address in:
-
-```text
-contracts/frontend/app.js
-```
-
----
-
-## 8. Configure MetaMask
-
-Connect MetaMask to the local Hardhat network.
-
-Use these settings:
-
-```text
-Network Name: Hardhat Local
+Network: Hardhat Local
 RPC URL: http://127.0.0.1:8545
 Chain ID: 31337
-Currency Symbol: ETH
-```
+Currency: ETH
 
-For local testing, you can import one of the test accounts displayed by:
-
-```powershell
-npx hardhat node
-```
-
-These accounts are for development and testing only.
-
----
-
-## 9. Start the Frontend
-
-The frontend is located in:
-
-```text
-contracts/frontend/
-```
-
-Open:
-
-```text
-contracts/frontend/index.html
-```
-
-using VS Code Live Server.
-
-The application should open at:
-
-```text
-http://127.0.0.1:5500/contracts/frontend/index.html
-```
-
----
-
-## 10. Connect MetaMask
-
-Open the application in your browser.
-
-Click:
-
-```text
-Connect Wallet
-```
-
-Approve the connection request in MetaMask.
-
-The application will display the connected wallet and user role.
-
----
-
-## 11. User Roles
-
-### Owner
-
-The owner can:
-
-* Add manufacturers
-* Add distributors
-* Manage authorized participants
-
-### Manufacturer
-
-A manufacturer can:
-
-* Register products
-* Update product information
-* View products
-* Track products
-
-### Distributor
-
-A distributor can:
-
-* Update product location
-* Update product status
-* Track products
-
-### Public User
-
-Users can:
-
-* Search products
-* Verify products
-* View tracking history
-* Scan QR codes
-
----
-
-## 12. Product Registration
-
-Authorized manufacturers can register products by entering:
-
-* Product name
-* Location
-* Status
-
-After registration, the product is stored on the blockchain and receives a unique Product ID.
-
----
-
-## 13. Product Tracking
-
-The system records product changes including:
-
-* Location
-* Status
-* Timestamp
-* Address of the account that performed the update
-
-These records form the product tracking history.
-
----
-
-## 14. Product Verification
-
-Users can enter a Product ID to verify a product.
-
-The system can display:
-
-* Product existence
-* Product name
-* Current location
-* Current status
-* Timestamp
-* Product creator
-
----
-
-## 15. QR Code
-
-The system supports QR code generation and scanning.
-
-### QR Code Generation
-
-A QR code can be generated for a registered product.
-
-### QR Code Scanning
-
-Users can scan the QR code to access product information.
-
----
-
-## 16. Blockchain Transactions
-
-The system displays transaction information such as:
-
-* Transaction type
-* Transaction hash
-* Block number
-* Transaction status
-* Sender address
-* Contract address
-* Gas information
-
----
-
-## 17. Smart Contract
-
-The main smart contract is:
-
-```text
-contracts/SupplyChain.sol
-```
-
-The contract provides:
-
-* Product registration
-* Product updates
-* Product verification
-* Tracking history
-* Manufacturer authorization
-* Distributor authorization
-* Event logging
-
----
-
-## 18. Testing the Application
-
-After starting the Hardhat node and deploying the contract:
-
-1. Connect MetaMask.
-2. Select the Hardhat Local network.
-3. Add a manufacturer if required.
-4. Register a product.
-5. Check the generated Product ID.
-6. Search for the product.
-7. Update the product location or status.
-8. View the tracking history.
-9. Verify the product.
-10. Generate the product QR code.
-11. Test QR code scanning.
-12. Check the blockchain transaction details.
-
----
-
-## 19. Important Commands
-
-### Install dependencies
-
-```powershell
-npm install
-```
-
-### Build the project
-
-```powershell
-npx hardhat build
-```
-
-### Start local blockchain
-
-```powershell
-npx hardhat node
-```
-
-### Deploy the contract
-
-```powershell
-npx hardhat run scripts/deploy.ts --network localhost
-```
-
-### Clean Hardhat build files
-
-```powershell
-npx hardhat clean
-```
-
----
-
-## 20. Important Notes
-
-The Hardhat local blockchain is intended for development and testing.
-
-The frontend must use the address of the currently deployed smart contract.
-
-If the contract is redeployed, update the contract address in:
-
-```text
-contracts/frontend/app.js
-```
-
-Do not share real private keys or sensitive wallet information.
-
----
-
-## 21. Current Deployment
-
-```text
-Contract Address:
+Contract:
 0xb7f8bc63bbcad18155201308c8f3540b07f84f5e
-
-Network:
-Hardhat Local
-
-RPC URL:
-http://127.0.0.1:8545
-
-Chain ID:
-31337
-
-Currency:
-ETH
 ```
 
----
+## 🎯 Project Purpose
 
-## 22. Project Purpose
+The purpose of this project is to demonstrate how **blockchain technology and smart contracts** can improve:
 
-The purpose of this project is to demonstrate how blockchain technology and smart contracts can be used to improve supply-chain tracking, transparency, product verification, and record management.
+* Supply-chain transparency
+* Product traceability
+* Product verification
+* Record management
+* Tracking of product movement
+* Access control between supply-chain participants
 
-The system provides a blockchain-based approach for recording product movement and status changes across different stages of the supply chain.
+The project demonstrates a decentralized approach to recording product information and tracking changes across different stages of the supply chain.
+
+## 🔮 Future Improvements
+
+Possible future improvements include:
+
+* Deployment to a public testnet
+* IPFS integration for decentralized document storage
+* Advanced QR-code verification
+* Mobile application
+* Improved analytics dashboard
+* Multi-chain support
+* Automated notifications
+* Production-ready authentication
+
+## 👨‍💻 Author
+
+**Baleerh Muhd**
+
+Blockchain & Solidity Developer
+
+GitHub:
+https://github.com/baleerh-ops
+
+## 📄 License
+
+This project is intended for educational, research, and development purposes.
